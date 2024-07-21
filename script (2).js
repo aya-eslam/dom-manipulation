@@ -116,3 +116,27 @@ document.getElementById('newQuote').addEventListener('click', showRandomQuote);
 
 // Show a random quote on page load
 document.addEventListener('DOMContentLoaded', loadQuotes);
+// Initialize Data
+function loadData() {
+    const data = localStorage.getItem('myData');
+    if (data) {
+        return JSON.parse(data);
+    }
+    return []; // Return an empty array if no data is found
+}
+
+// Save Data
+function saveData(data) {
+    localStorage.setItem('myData', JSON.stringify(data));
+}
+
+// Example Usage
+let data = loadData();
+
+// Adding new item
+data.push({ id: 1, text: 'New Item' });
+saveData(data);
+
+// Removing item
+data = data.filter(item => item.id !== 1);
+saveData(data);
