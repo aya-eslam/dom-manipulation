@@ -36,7 +36,7 @@
         button:hover {
             background-color: #0056b3;
         }
-        input {
+        input, select {
             padding: 10px;
             margin: 5px;
             border: 1px solid #ccc;
@@ -54,6 +54,10 @@
         <button onclick="addQuote()">Add Quote</button>
     </div>
     <div>
+        <select id="categoryFilter" onchange="filterQuotes()">
+            <option value="all">All Categories</option>
+            <!-- Dynamically populated categories -->
+        </select>
         <button onclick="exportToJson()">Export Quotes</button>
         <input type="file" id="importFile" accept=".json" onchange="importFromJsonFile(event)" />
         <button onclick="clearQuotes()">Clear Quotes</button>
